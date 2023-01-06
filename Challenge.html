@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+
+    <head>
+
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>ENCRIPTADOR</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="challenge.css">
+
+    </head>
+
+
+    <header>
+        <img class="logo-principal" src="vector.png" alt="logoalura">
+        <script type = "text/javascript">
+
+           function encriptar(){
+                
+                texto = document.getElementById("texto").value;
+                document.getElementById("texto").value = "";
+                var textoCifrado = texto.replace(/e/gi, "enter").replace(/i/gi, "imes").replace(/a/gi, "ai").replace(/o/gi, "ober").replace(/u/gi, "ufat");
+                document.getElementById("textoencriptado").value=textoCifrado;
+                document.getElementById("texto").value; 
+                quitar(imagen);
+                enviartexto(text);
+                
+            }
+                
+
+            
+
+           
+
+           function desencriptar(){
+               
+                var texto = document.getElementById("texto").value;
+                var textoCifrado = texto.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+                document.getElementById("textoencriptado").value = textoCifrado;
+                document.getElementById("texto").value;
+                document.getElementById("texto").value = "";
+                quitar(imagen);
+            }
+
+            function quitar (imagen){
+                document.getElementById("imagen").style.display="none";
+                
+              
+            }
+    
+            function enviartexto (text){
+                document.getElementById("textoencriptado").value=text
+
+
+            }
+
+            function copiar(){
+                let textoencriptado= document.getElementById("textoencriptado");
+                console.log("hola")
+                textoencriptado.select();
+                textoencriptado.setSelectionRange(0,99999);
+                document.execCommand("copy");
+            }
+
+        </script>
+    </header>
+
+    <main>
+
+        <form>
+
+            <label for="Mensaje" ></label>
+            <input type="text" placeholder="ESCRIBA SU MENSAJE AQUI!" id="texto" />
+
+
+        </form>
+
+        <p>⚠ Letras minúsculas y sin acentos!</p>
+        <button type="button" onclick="encriptar()" class="encriptar">Encriptar</button>
+        <button type="button" onclick="desencriptar()"class="desencriptar">Desencriptar</button>
+
+        <div class="texto-listo">
+   
+       
+        </div>
+
+        <textarea type="text" id="textoencriptado" ></textarea>
+        <p id="lupa">Tu mensaje encriptado🔍</p>
+        <img src="muñecoytexto.png" alt="" class="imagen-muneco" id="imagen">
+
+        <button onclick="copiar()"; class="copiar"> 🖹 Copy</button>
+
+    </main>
+</html>
